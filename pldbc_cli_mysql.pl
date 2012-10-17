@@ -1,6 +1,7 @@
 % * -*- Mode: Prolog -*- */
 
-:- module(pldbc_cli_mysql).
+:- module(pldbc_cli_mysql,
+          []).
 :- use_module(pldbc).
 
 /** pldbc implementation to mysql via command line
@@ -74,7 +75,6 @@ pldbc:pldbc_query_hook(Connection, SQL, Row, _Options) :-
         Connection = cli_mysql(ConnArgs),
         option(opts(OptAtom),ConnArgs,''),
         atomic_list_concat([echo,' "',SQL,'" | mysql ',OptAtom],Cmd),
-        writeln(cmd(Cmd)),
         open(pipe(Cmd),read,IO,[]),
         parse_rows(IO,Row).
 
