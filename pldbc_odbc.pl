@@ -1,12 +1,13 @@
 % * -*- Mode: Prolog -*- */
 
 :- module(pldbc/pldbc_odbc,[]).
-
+/** <module> ODBC connection through pldbc
 % NOT TESTED
 
 % Do not use this module directly! See pldbc
 
 % Note this may in future be distributed in its own repo
+*/
 
 % ----------------------------------------
 % CONNECTION MANAGEMENT
