@@ -4,10 +4,9 @@
           []).
 :- use_module(pldbc).
 
-/** pldbc implementation to mysql via command line
+/** <module> pldbc implementation to mysql via command line
 
   VERY HACKY - mainly for illustrative purposes
-
 
   Note this may in future be distributed in its own repo
 
@@ -16,25 +15,25 @@
 
   Currently to connect you pass in a term
 
-===  
+===
   cli_mysql([opts(ConnectionArgsAtom)])
-===  
+===
 
   NOT STABLE!!
-  
+
 ===
 
 :- use_module(library(pldbc)).
 :- use_module(library(pldbc/pldbc_cli_mysql)).   % may be auto-loaded in future
 
-test :-  
+test :-
         pldbc_connect(cli_mysql([opts('-A -hmysql.ebi.ac.uk -ugo_select -pamigo -P4085 go_latest')]), Connection, []),
         pldbc_query(Connection, 'SELECT * FROM term LIMIT 25',Row),
         writeln(Row),
         fail.
-===  
-  
-  
+===
+
+
 */
 
 
@@ -48,6 +47,7 @@ test :-
 :- multifile pldbc:pldbc_statistics_hook/1.
 :- multifile pldbc:pldbc_connect_hook/3.
 :- multifile pldbc:pldbc_disconnect_hook/3.
+
 
 % note for CLI we don't really 'connect' - we just
 % unify the Connection variable with a structure
@@ -124,4 +124,4 @@ test :-
         writeln(Row),
         fail.
 
-                    
+
